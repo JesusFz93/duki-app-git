@@ -11,9 +11,11 @@ import { firebase } from '../firebase/firebase-config'
 import { AuthRouter } from './AuthRouter';
 import { PrivateRoute } from './PrivateRoute';
 
-import { JournalScreen } from '../components/journal/JournalScreen';
+//import { JournalScreen } from '../components/journal/JournalScreen';
 import { login } from '../actions/auth';
 import { PublicRoute } from './PublicRoute';
+import { Principal } from '../components/journal/PrincipalScreen';
+import { DashboardRoutes } from './DashboardRoutes';
 
 export const AppRouter = () => {
 
@@ -63,7 +65,7 @@ export const AppRouter = () => {
                         exact
                         isAuthenticated={ isLoggedIn }
                         path="/"
-                        component={ JournalScreen }
+                        component={ Principal }
                     />
 
                     <Redirect to="/auth/login" />

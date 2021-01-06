@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { Principal } from '../components/journal/PrincipalScreen';
+import { SegundaScreen } from '../components/journal/SegundaScreen';
 import { Navbar } from '../ui/navbar/Navbar';
 
 export const DashboardRoutes = () => {
@@ -11,9 +12,10 @@ export const DashboardRoutes = () => {
 
             <div className="container mt-2">
                 <Switch>
-                    <Route exact path="/marvel" component={ Principal } />
+                    <Route exact path="/principal" component={ Principal } />
+                    <Route exact path="/secundaria" component={ SegundaScreen } />
 
-                    <Redirect to="/marvel" />
+                    <Redirect to="/principal" />
                 </Switch>
             </div>
 

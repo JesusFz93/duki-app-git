@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
     BrowserRouter as Router,
-    Switch,
-    Redirect
+    Switch
   } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
@@ -16,6 +15,7 @@ import { login } from '../actions/auth';
 import { PublicRoute } from './PublicRoute';
 import { Principal } from '../components/journal/PrincipalScreen';
 import { DashboardRoutes } from './DashboardRoutes';
+//import { DashboardRoutes } from './DashboardRoutes';
 
 export const AppRouter = () => {
 
@@ -56,19 +56,17 @@ export const AppRouter = () => {
             <div>
                 <Switch>
                     <PublicRoute 
-                        path="/auth"
+                        exact
+                        path="/auth/login"
                         component={ AuthRouter }
                         isAuthenticated={ isLoggedIn }
                     />
 
                     <PrivateRoute 
-                        exact
                         isAuthenticated={ isLoggedIn }
                         path="/"
-                        component={ Principal }
+                        component={ DashboardRoutes }
                     />
-
-                    <Redirect to="/auth/login" />
 
 
                 </Switch>

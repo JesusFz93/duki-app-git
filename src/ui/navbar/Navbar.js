@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useHistory } from 'react-router-dom';
-import { AuthContext } from '../../auth/AuthContext';
-import { types } from '../../types/types';
+//import { AuthContext } from '../../auth/AuthContext';
+//import { types } from '../../types/types';
 
 import { startLogout } from '../../actions/auth';
 
@@ -33,7 +33,7 @@ export const Navbar = () => {
                         activeClassName="active"
                         className="nav-item nav-link" 
                         exact
-                        to="/pageunoscreen"
+                        to="/principal"
                     >
                         page1
                     </NavLink>
@@ -42,18 +42,9 @@ export const Navbar = () => {
                         activeClassName="active"
                         className="nav-item nav-link" 
                         exact
-                        to="/dc"
+                        to="/secundaria"
                     >
-                        DC
-                    </NavLink>
-                    
-                    <NavLink 
-                        activeClassName="active"
-                        className="nav-item nav-link" 
-                        exact
-                        to="/search"
-                    >
-                        Search
+                        page2
                     </NavLink>
                 </div>
             </div>

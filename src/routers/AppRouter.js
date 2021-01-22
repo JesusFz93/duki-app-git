@@ -13,9 +13,10 @@ import { PrivateRoute } from './PrivateRoute';
 //import { JournalScreen } from '../components/journal/JournalScreen';
 import { login } from '../actions/auth';
 import { PublicRoute } from './PublicRoute';
-import { Principal } from '../components/journal/PrincipalScreen';
 import { DashboardRoutes } from './DashboardRoutes';
 //import { DashboardRoutes } from './DashboardRoutes';
+
+import {startLoadingElements} from '../actions/generalActions';
 
 export const AppRouter = () => {
 
@@ -33,6 +34,7 @@ export const AppRouter = () => {
             if ( user?.uid ) {
                 dispatch( login( user.uid, user.displayName ) );
                 setIsLoggedIn( true );
+                dispatch( startLoadingElements( user.uid ) );
             } else {
                 setIsLoggedIn( false );
             }

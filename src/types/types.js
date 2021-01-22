@@ -11,4 +11,10 @@ export const types = {
     uiStartLoading: '[UI] Start loading',
     uiFinishLoading: '[UI] Finish loading',
 
+    hallaAddInfo: '[Halla] Add info',
+    hallaLoadInfo: '[Notes] Load notes',
+
+    pageLoadElements: '[Page] Load elements',
+    pageDeleteElements: '[Page] Delete elements',
+
 }

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useHistory } from 'react-router-dom';
 //import { AuthContext } from '../../auth/AuthContext';
@@ -10,9 +10,14 @@ export const Navbar = () => {
 
     const dispatch = useDispatch();
     const { name } = useSelector(state => state.auth);
+
+    const history = useHistory();
     
 
     const handleLogout = () => {
+        
+        history.replace('/login');
+
         dispatch( startLogout() )
     }
 
@@ -33,6 +38,15 @@ export const Navbar = () => {
                         activeClassName="active"
                         className="nav-item nav-link" 
                         exact
+                        to="/inicio"
+                    >
+                        Inicio
+                    </NavLink>
+
+                    <NavLink 
+                        activeClassName="active"
+                        className="nav-item nav-link" 
+                        exact
                         to="/principal"
                     >
                         page1
@@ -46,6 +60,17 @@ export const Navbar = () => {
                     >
                         page2
                     </NavLink>
+
+                    <li className="nav-item dropdown">
+                        <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button" aria-haspopup="true" aria-expanded="false">Componentes</a>
+                        <div className="dropdown-menu">
+                        <NavLink activeClassName="active" className="dropdown-item" exact to="/form/simpleform">Simple form</NavLink>
+                        <div className="dropdown-divider"></div>
+                        <NavLink activeClassName="active" className="dropdown-item" exact to="/text/simpletext">Simple text</NavLink>
+                        <NavLink activeClassName="active" className="dropdown-item" exact to="/text/hallascreen">Halla Form</NavLink>
+                        </div>
+                    </li>
+                    
                 </div>
             </div>
 
